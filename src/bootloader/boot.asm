@@ -80,6 +80,45 @@ main:
 .halt:
     jmp .halt
 
+
+; disk routines
+
+
+
+
+; conv an lba addr to chs addr
+
+;Parameters:
+;   -ax: LBA address
+;Returns:
+;   -cx [0-5]: sector address
+;   -cx [bits 6-15]: cylinder
+;   -dh: head
+
+lba_to_chs:
+    
+    push ax
+    push dx
+
+    xor dx, dx
+    div word [bdb_sectors_per_track]
+    
+    inc dx
+    mov cx, dx
+ 
+    xor dx, dx
+    div word [bdb_heads]
+    
+    mov dh, dl
+    mov ch, al
+    shl ah, 6
+    or cl, ah
+    
+    pop ax
+    mov dl, al
+    pop ax
+    ret
+
 msg_hello: db 'Hello world!', ENDL, 0
 
 times 510-($-$$) db 0
