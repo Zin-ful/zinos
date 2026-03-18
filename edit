@@ -1,0 +1,36 @@
+#!/bin/sh
+
+echo "1) main.asm"
+
+echo "2) boot.asm"
+
+echo "3) Not yet"
+
+echo "4) Not yet"
+
+echo "5) Not yet"
+
+read -p ">>> " choice
+
+case $choice in
+    1)
+        nano src/kernel/main.asm
+        ;;
+    2)
+        nano src/bootloader/boot.asm
+        ;;
+    3)
+        echo ""
+        ;;
+    4)
+        echo ""
+        ;;
+    5)
+        echo ""
+        ;;
+    *)
+        echo "Invalid"
+        ;;
+esac
+
+echo "Saved"
