@@ -1,0 +1,2 @@
+#!/bin/sh
+pacman -S qemu-desktop nano mtools dosfstools
