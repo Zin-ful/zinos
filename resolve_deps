@@ -1,2 +1,3 @@
 #!/bin/sh
-pacman -S qemu-desktop nano mtools dosfstools
+pacman -S qemu-desktop nano mtools dosfstools nasm
+
